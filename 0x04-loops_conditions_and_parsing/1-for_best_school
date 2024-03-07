@@ -1,4 +1,4 @@
-#!/usr/bin/env/bash
+#!/usr/bin/env bash
 #Print the string 10x
 
 for (( i=0; i<10; i++ )) 
