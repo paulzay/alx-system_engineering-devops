@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# print string 10x with until
+
+count=0
+
+until [ $count -eq 10 ]
+do
+  echo "Best School"
+  (( count++ ))
+done
