@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# print 
+
+counter=1
+while [ $counter -ne 11 ]
+do
+    if [ $counter -eq 4 ]; then
+	echo "bad luck"
+    elif [ $counter -eq 8 ]; then
+	echo "good luck"
+    else
+	echo "Best School"
+    fi
+    ((counter++))
+done
