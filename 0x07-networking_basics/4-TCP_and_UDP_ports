@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# tpc & udp
+netstat -lp
