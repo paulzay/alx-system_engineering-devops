@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 # change address
-cp /etc/hosts /etc/hosts.old
-echo "localhost 127.0.0.2" > /etc/hosts.old
-echo "facebook.com  8.8.8.8" >> /etc/hosts.old
-
-cp -f /etc/hosts.old /etc/hosts
+echo "127.0.0.2 localhost" > ~/hosts.new
+echo "8.8.8.8 facebook.com" >> ~/hosts.new
+cp -f ~/hosts.new /etc/hosts
