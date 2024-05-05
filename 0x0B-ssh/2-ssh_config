@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# connect without password
+
+ssh -A -i "~/.ssh/school" ubuntu@100.27.12.25
+echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
