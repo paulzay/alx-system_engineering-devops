@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# conneect to server with private key
+ssh -i "$HOME/.ssh/school" ubuntu@100.27.12.25
