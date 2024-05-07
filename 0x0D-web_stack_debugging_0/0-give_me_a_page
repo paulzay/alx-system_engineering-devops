@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# setup apache
+# start apache server
+sudo service apache2 start
+# sed change the Nameserver
+echo "ServerName localhost"
+# check it works
+apachectl configtest
+# restart apache
+sudo service apache2 restart
