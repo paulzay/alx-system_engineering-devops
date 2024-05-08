@@ -15,7 +15,7 @@ exec {'ufw allow':
 }
 
 exec {'hello world':
-	command => 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
+	command => 'usr/bin/echo "Hello World!" > /var/www/html/index.nginx-debian.html'
 }
 
 exec {'301':
