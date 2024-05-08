@@ -1,10 +1,12 @@
 # install and configure nginx server
 
+$packages = ['nginx', 'ufw']
+
 exec {'apt-get update':
 	command => '/usr/bin/apt-get update -y'
 }
 
-package {'nginx':
+package {$packages:
 	ensure => 'installed'
 }
 
