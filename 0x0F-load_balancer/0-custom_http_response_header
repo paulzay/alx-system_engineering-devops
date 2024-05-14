@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # create environment setup
+
 sudo apt-get update -y
 sudo apt install nginx
 sudo ufw allow 'Nginx HTTP'
+sudo chmod -R 755 /var/www
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
-sudo service nginx restart
-
+sudo sed -i '/location {/a add_header X-Served-By $hostname' /etc/nginx/sites-available/default
+sudo service nginx start
