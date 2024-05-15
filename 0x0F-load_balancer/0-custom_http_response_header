@@ -4,9 +4,15 @@
 sudo apt-get update -y
 sudo apt-get install nginx -y
 sudo ufw allow 'Nginx HTTP'
-sudo echo 'Hello World' >> /var/www/html/index.nginx-debian.html
+sudo echo 'Hello World' > /var/www/html/index.nginx-debian.html
 sudo echo "Ceci n'est pas une page" > /var/www/html/error_404.html
-sudo sed -i '/server_name;/a /t/t error_page 404 /error_404.html; \a location = /error_404.html {\a /t/t/t internal; \a \t\t}' /etc/nginx/sites-enabled/default  
+sudo sed -i '/root \/var\/www\/html/a \
+  error_page 404 /error_404.html; \
+  location = /error_404.html { \
+    internal; \
+  }' /etc/nginx/sites-enabled/default
+
+# sudo sed -i '/root /var/www/html/a error_page 404 /error_404.html;/a location = /error_404.html {/a internal;/a }' /etc/nginx/sites-enabled/default
 sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me(/.*)?$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
-sudo sed -i '/server_name_;/a \t\t add_header X-Served-By $hostname' /etc/nginx/sites-available/default
+sudo sed -i '/listen 80 default_server/a add_header X-Served-By $hostname;' /etc/nginx/sites-available/default
 sudo service nginx restart
