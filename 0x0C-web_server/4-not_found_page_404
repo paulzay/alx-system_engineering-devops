@@ -6,5 +6,5 @@ sudo apt-get install nginx -y
 sudo ufw allow 'Nginx HTTP'
 sudo echo 'Hello World' >> /var/www/html/index.nginx-debian.html
 sudo echo "Ceci n'est pas une page" > /var/www/html/error_404.html
-sudo sed '/server_name;/a /t/t error_page 404 /error_404.html; \a location = /error_404.html {\a /t/t/t internal; \a \t\t}' /etc/nginx/sites-enabled/default  
+sudo sed -i '/server_name;/a /t/t error_page 404 /error_404.html; \a location = /error_404.html {\a /t/t/t internal; \a \t\t}' /etc/nginx/sites-enabled/default  
 sudo nginx -s restart
