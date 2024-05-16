@@ -3,14 +3,13 @@
 
 sudo apt-get update -y
 sudo apt install haproxy -y
-
+sudo systemctl enable haproxy
+sudo systemctl start haproxy
 sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.orig
-echo "backend web_servers" >> /etc/haproxy/haproxy.cfg
-sudo sed -i '/backend web_servers/a \
-mode http \
-balance roundrobin \
-server s1 18.234.192.140:80 check \
-server s2 100.27.12.25:80 check \
-' /etc/haproxy
+echo "fontend app_server" >> /etc/haproxy/haproxy.cfg
+sudo sed -i '/frontend app_server/a \   frontend client_server \n \   bind *:80\n \   default_backend web_servers' /etc/haproxy/haproxy.cfg
 
+echo "backend web_servers" >> /etc/haproxy/haproxy.cfg
+sudo sed -i '/backend web_servers/a \   mode http\n\t\tbalance roundrobin\n\t\tserver 527589-web-02 18.234.192.140:80 check\n\t\tserver 527589-web-01 100.27.12.25:80 check
+' /etc/haproxy/haproxy.cfg
 sudo service haproxy reload
