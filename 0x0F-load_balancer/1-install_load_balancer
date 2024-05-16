@@ -6,7 +6,7 @@ sudo apt install haproxy -y
 sudo systemctl enable haproxy
 sudo systemctl start haproxy
 sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.orig
-echo "fontend app_server" >> /etc/haproxy/haproxy.cfg
+echo "frontend app_server" >> /etc/haproxy/haproxy.cfg
 sudo sed -i '/frontend app_server/a \   frontend client_server \n \   bind *:80\n \   default_backend web_servers' /etc/haproxy/haproxy.cfg
 
 echo "backend web_servers" >> /etc/haproxy/haproxy.cfg
