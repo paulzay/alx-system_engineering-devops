@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# setup domains
+
+subdomains=( "www" "lb-01" "web-01" "web-02" )
+domain="$1"
+subdomain="$2"
+
