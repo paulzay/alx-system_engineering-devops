@@ -33,18 +33,16 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend app_server
-        frontend client_server
+frontend client_server
         bind *:80
+        bind *:443 ssl crt /etc/haproxy/certs/www.zaydesigns.co.pem
         default_backend web_servers
         mode http
-        bind *:443 ssl crt /etc/haproxy/certs/zaydesigns.co
-        http-request redirect scheme https unless { ssl_fc }
-        http-request set-header X-Forwarded-Proto https
+        redirect scheme https if !{ ssl_fc }
+        http-request redirect scheme https code 301 unless { ssl_fc }
 
 backend web_servers
         mode http
         balance roundrobin
         server 527589-web-02 18.234.192.140:80 check
         server 527589-web-01 100.27.12.25:80 check
-
