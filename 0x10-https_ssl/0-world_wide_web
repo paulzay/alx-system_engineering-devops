@@ -16,10 +16,10 @@ func () {
   echo "The subdomain $sub$is a $RECORD record and points to $IP${reset}"
 }
 
-if [ $# -eq 1 ]; then
+if [ $# -eq 2 ]; then
   for subs in "${subdomains[@]}"; do
     func "$domain" "$subs"
   done
-elif [ $# -eq 2 ]; then
+elif [ $# -eq 1 ]; then
   func "$domain" "$sub"
 fi
