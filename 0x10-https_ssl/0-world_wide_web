@@ -4,4 +4,26 @@
 subdomains=( "www" "lb-01" "web-01" "web-02" )
 domain="$1"
 subdomain="$2"
+echo "hello world"
+func () {
+  if [ "$1" ]
+  then
+  	#INFO="$(dig "$sub.$domain" | grep -A1 'ANSWER SECTION:' | awk 'NR==2')"
+  	#IP=$(echo "$INFO" | awk '{print $5}')
+  	#RECORD=$(echo "$INFO" | awk '{print $4}')
 
+	  #echo -e "${brown}The subdomain ${blue}$sub${brown} is a ${blue}$RECORD${brown} record and points to ${blue}$IP${reset}"
+    echo "Parameter length is 1"
+  else
+    if [ "$2" ]
+    then
+      INFO="$(dig "$subdomain.$domain" | grep -A1 'ANSWER SECTION:' | awk 'NR==2')"
+	    IP=$(echo "$INFO" | awk '{print $5}')
+	    RECORD=$(echo "$INFO" | awk '{print $4}')
+
+	    echo -e "${brown}The subdomain ${blue}$sub${brown} is a ${blue}$RECORD${brown} record and points to ${blue}$IP${reset}"
+      echo "The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]"
+    fi
+  fi
+}
+func
