@@ -47,3 +47,4 @@ backend web_servers
         balance roundrobin
         server 527589-web-02 18.234.192.140:80 check
         server 527589-web-01 100.27.12.25:80 check
+
