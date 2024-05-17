@@ -1,5 +1,5 @@
 # #!/usr/bin/env bash
-# # setup domains
+# setup domains
 
 # variables & parameters
 subdomains=( "www" "lb-01" "web-01" "web-02" )
