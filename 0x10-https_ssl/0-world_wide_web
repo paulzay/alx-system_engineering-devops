@@ -13,7 +13,7 @@ func () {
   IP=$(echo "$INFO" | awk '{print $5}')
   RECORD=$(echo "$INFO" | awk '{print $4}')
 
-  echo "The subdomain $sub$is a $RECORD record and points to $IP${reset}"
+  echo "The subdomain $sub is a $RECORD record and points to $IP${reset}"
 }
 
 if [ $# -eq 1 ]; then
