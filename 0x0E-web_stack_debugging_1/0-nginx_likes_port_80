@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-# documentation
+# find out why server isnt running
+sudo service nginx start
