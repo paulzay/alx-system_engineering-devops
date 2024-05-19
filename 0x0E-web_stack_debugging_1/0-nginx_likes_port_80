@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 # find out why server isnt running
+sudo apt-get update -y
+sudo apt install nginx -y
+sudo ufw allow 'Nginx HTTP'
 sudo service nginx start
