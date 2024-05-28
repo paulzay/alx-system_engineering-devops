@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# run software as another user
+
+whoami "$1"
