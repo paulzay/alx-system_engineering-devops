@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# fetch
+"""dfetch from api with request"""
 
 import requests
 import sys
