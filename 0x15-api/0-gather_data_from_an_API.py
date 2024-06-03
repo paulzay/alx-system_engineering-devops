@@ -22,11 +22,12 @@ if __name__ == "__main__":
                 for user in users:
                     if user.get('id') == int(argv):
                         uname = user.get('name')
-                total_tasks+=1
-                if todo.get('completed') == True:
+                total_tasks += 1
+                if todo.get('completed'):
                     tasks.append(todo)
-                    done_tasks+=1
-        print(f"Employee {uname} is done with tasks ({done_tasks}/{total_tasks}):")
+                    done_tasks += 1
+        print(f"Employee {uname} is done with \
+            tasks ({done_tasks}/{total_tasks}):")
         for task in tasks:
             print(f"     {task.get('title')}")
     except Exception as e:
