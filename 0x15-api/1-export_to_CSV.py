@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """fetch from api with request"""
 
+import re
 import requests
 import sys
-import re
+
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
