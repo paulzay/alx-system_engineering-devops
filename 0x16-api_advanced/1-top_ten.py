@@ -4,6 +4,7 @@ import requests
 
 
 def top_ten(subreddit):
+    """docs"""
     r = requests.get("https://www.reddit.com/r/{}/hot.json?limit=10"
                      .format(subreddit),
                      headers={"User-Agent": "Custom-User-Agent"},)
